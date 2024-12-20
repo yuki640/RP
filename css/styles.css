@@ -1,0 +1,278 @@
+/* Style général pour l'ensemble de la page */
+body {
+    font-family: Arial, sans-serif; /* Définit la police générale */
+    background-color: #f4f4f4; /* Couleur de fond grise claire */
+    margin: 0; /* Retire la marge par défaut du navigateur */
+    padding: 0; /* Retire le padding par défaut du navigateur */
+    display: flex; /* Permet de disposer les éléments en flex (en ligne ou en colonne) */
+    flex-direction: row; /* Aligne les éléments (par exemple #jeu et #statistiques) horizontalement */
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: flex-start; /* Aligne les éléments en haut (début de la zone) */
+}
+
+/* Zone principale du jeu */
+#jeu {
+    flex: 3; /* Ce bloc prendra plus d'espace que #statistiques car flex:3 > flex:1 */
+    max-width: 800px; /* Limite la taille max horizontale du bloc principal */
+    margin-right: 20px; /* Espace à droite pour séparer du bloc #statistiques */
+    padding: 20px; /* Marge interne pour respirer le contenu */
+    background: #fff; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Légère ombre pour effet de relief */
+}
+
+/* Page d'accueil (introduction) centrée */
+#accueil {
+    text-align: center; /* Texte centré */
+}
+
+/* Style des boutons */
+button {
+    background-color: #007BFF; /* Bleu standard pour les boutons */
+    color: white; /* Texte blanc sur fond bleu */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Espace interne autour du texte */
+    margin: 5px; /* Espace entre plusieurs boutons */
+    cursor: pointer; /* Change le curseur en main lors du survol */
+    font-size: 16px; /* Taille du texte dans les boutons */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce sur la couleur et la taille */
+}
+
+button:hover {
+    background-color: #0056b3; /* Couleur un peu plus foncée au survol */
+    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+}
+
+/* Style spécifique pour le bouton #demarrer */
+#demarrer {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#demarrer:hover {
+    background-color: #0056b3;
+}
+
+/* Image d'introduction */
+#image-intro {
+    max-width: 100%; /* L'image ne dépassera pas la largeur de son conteneur */
+    height: auto; /* La hauteur s'adapte proportionnellement */
+    border-radius: 10px; /* Arrondit les coins de l'image */
+    margin-bottom: 15px; /* Espace sous l'image */
+}
+
+/* Image des scene */
+ #scene img {
+    max-width: 100%; /* L'image ne dépassera pas la largeur de son conteneur */
+    height: auto; /* La hauteur s'adapte proportionnellement */
+    border-radius: 10px; /* Arrondit les coins de l'image */
+    margin-bottom: 15px; /* Espace sous l'image */
+}
+
+/* Texte d'introduction */
+#texte-intro {
+    font-size: 18px; /* Taille un peu plus grande pour bien lire */
+    margin: 20px 0; /* Espace vertical autour du texte */
+    text-align: center; /* Centré */
+    margin-bottom: 20px; /* Espace supplémentaire en bas */
+}
+
+/* Section présentant les personnages */
+.personnage {
+    display: flex; /* Alignement des éléments internes en colonne */
+    flex-direction: column;
+    align-items: center; /* Aligne les éléments (image, titre) au centre */
+    margin-bottom: 20px; /* Espace entre chaque bloc personnage */
+    padding: 10px; /* Espace interne pour aérer le contenu */
+    border: 1px solid #ddd; /* Bordure grise claire */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    background-color: #f9f9f9; /* Fond gris très clair */
+}
+
+.personnage img {
+    max-width: 100px; /* Limite la taille de l'image */
+    height: auto; /* Hauteur proportionnelle à la largeur */
+    margin-bottom: 10px; /* Espace sous l'image */
+    border-radius: 5px; /* Coins arrondis sur l'image */
+}
+
+.personnage h3 {
+    font-size: 20px; /* Titre du personnage un peu plus grand */
+    margin-bottom: 5px; /* Légère marge sous le titre */
+}
+
+.personnage ul {
+    list-style: none; /* Retire les puces de liste */
+    padding: 0; /* Retire l'espace par défaut de la liste */
+    text-align: left; /* Le texte de la liste est aligné à gauche */
+    font-size: 14px; /* Taille de texte plus petite pour des détails */
+}
+
+.personnage ul li {
+    margin: 5px 0; /* Espace entre chaque ligne de la liste */
+}
+
+/* Fenêtre de confirmation (par exemple, lorsqu'on valide un choix) */
+.confirmation {
+    position: fixed; /* Reste visible même si on scroll */
+    top: 50%; /* Centré verticalement dans la page */
+    left: 50%; /* Centré horizontalement dans la page */
+    transform: translate(-50%, -50%); /* Ajuste la position pour être parfaitement au centre */
+    width: 400px; /* Largeur de la fenêtre de confirmation */
+    max-width: 90%; /* Sur petits écrans, rétrécit à 90% de la largeur */
+    text-align: center; /* Centré */
+    background-color: #fff; /* Fond blanc */
+    padding: 20px; /* Espace interne */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Légère ombre */
+    z-index: 1000; /* Au-dessus de tous les autres éléments */
+}
+
+/* Fond sombre derrière la fenêtre de confirmation, pour la mettre en évidence */
+#confirmation-overlay {
+    position: fixed; /* Couvre l'ensemble de la page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Noir transparent */
+    z-index: 999; /* Juste derrière la confirmation */
+    display: none; /* Par défaut caché, s'affiche lorsque nécessaire */
+}
+
+.confirmation img {
+    max-width: 150px; /* Taille max de l'image dans la confirmation */
+    margin-bottom: 10px; /* Espace en dessous */
+}
+
+.confirmation h2 {
+    font-size: 24px; /* Titre plus grand */
+    color: #555; /* Gris moyen */
+    margin-bottom: 10px; /* Espace sous le titre */
+}
+
+/* Historique des actions dans le jeu (textes, choix, etc.) */
+#historique {
+    margin-top: 20px; /* Espace au-dessus de l'historique */
+    background: #f9f9f9; /* Fond clair */
+    border: 1px solid #ddd; /* Bordure grise légère */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 10px; /* Espace interne */
+    font-size: 14px; /* Texte un peu plus petit */
+}
+
+#contenu-historique {
+    max-height: 200px; /* Limite la hauteur du bloc historique */
+    overflow-y: auto; /* Barre de défilement si le contenu dépasse 200px */
+    font-family: "Courier New", monospace; /* Police type machine à écrire pour l'historique */
+}
+
+/* Section des statistiques sur le côté */
+#statistiques {
+    flex: 1; /* Prend moins de place que le jeu */
+    text-align: left; /* Texte aligné à gauche */
+    font-size: 16px; /* Taille de texte normale */
+    background: #f9f9f9; /* Fond clair */
+    padding: 20px; /* Espace interne */
+    border: 1px solid #ddd; /* Bordure grise */
+    border-radius: 5px; /* Coins arrondis */
+    max-width: 300px; /* Largeur maximale pour les statistiques */
+    height: auto; /* S'ajuste à la taille du contenu */
+}
+
+#statistiques h3 {
+    margin-top: 0; /* Pas d'espace au-dessus du titre */
+}
+
+#statistiques p {
+    margin: 5px 0; /* Espace vertical entre paragraphes */
+}
+
+/* Différents écrans ou sections cachés par défaut */
+#choix-personnage, 
+#scene, 
+#inventaire, 
+#carte {
+    display: none; /* Ces éléments sont cachés, ils apparaîtront via du JavaScript */
+}
+
+/* Boutons pour afficher la carte, l'inventaire, fermer la carte */
+#voir-carte, 
+#voir-inventaire, 
+#carte-close {
+    padding: 10px 20px; /* Espace interne */
+    font-size: 16px; /* Taille du texte */
+    background-color: #007bff; /* Bleu standard bouton */
+    color: #fff; /* Texte blanc */
+    border: none; /* Sans bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur en forme de main */
+    margin-top: 10px; /* Espace au-dessus */
+}
+
+#voir-carte:hover, 
+#voir-inventaire:hover, 
+#carte-close:hover {
+    background-color: #0056b3; /* Couleur plus foncée au survol */
+}
+
+/* Zone d'affichage de la carte */
+#carte {
+    padding: 20px; /* Espace interne */
+    background: #fff; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre pour relief */
+    max-width: 800px; /* Largeur max de la carte */
+    margin: 20px auto; /* Centré et avec espace autour */
+    text-align: center; /* Contenu centré */
+}
+
+/* Popup général (pour afficher des infos sur la carte, par exemple) */
+#popup {
+    position: fixed; /* Reste au même endroit si on scroll */
+    top: 50%; /* Centré verticalement */
+    left: 50%; /* Centré horizontalement */
+    transform: translate(-50%, -50%); /* Ajustement pour centrer parfaitement */
+    width: 80%; /* Occupe 80% de la largeur de la fenêtre */
+    max-width: 500px; /* Largeur max du popup */
+    background-color: #fff; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre autour */
+    z-index: 1000; /* Au-dessus des autres éléments */
+    padding: 20px; /* Espace interne */
+    text-align: center; /* Centré */
+    display: none; /* Caché par défaut, sera affiché via JS */
+}
+
+/* Disposition de la carte sous forme de grille flexible */
+.map {
+    display: flex; /* Disposition en flex */
+    justify-content: space-evenly; /* Espace égal entre les éléments */
+    flex-wrap: wrap; /* Les éléments reviennent à la ligne si nécessaire */
+    gap: 10px; /* Espace entre les éléments de la carte */
+    margin: 20px 0; /* Espace au-dessus et en dessous de la carte */
+}
+
+/* Un lieu sur la carte (un bouton ou un bloc) */
+.map-lieu {
+    padding: 10px; /* Espace interne */
+    background-color: #007BFF; /* Bleu pour distinguer un lieu */
+    color: white; /* Texte en blanc pour contraster */
+    border-radius: 5px; /* Coins arrondis */
+    text-align: center; /* Centré */
+    min-width: 100px; /* Largeur minimale */
+    font-size: 14px; /* Texte un peu plus petit */
+}
+
+/* Adaptation aux écrans plus petits (responsive) */
+@media (max-width: 768px) {
+    #jeu, #statistiques {
+        width: 100%; /* Sur petit écran, chaque bloc prend toute la largeur */
+    }
+}
