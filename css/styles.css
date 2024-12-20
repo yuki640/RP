@@ -96,7 +96,7 @@ button:hover {
 }
 
 .personnage img {
-    max-width: 100px; /* Limite la taille de l'image */
+    max-width: 300px; /* Limite la taille de l'image */
     height: auto; /* Hauteur proportionnelle à la largeur */
     margin-bottom: 10px; /* Espace sous l'image */
     border-radius: 5px; /* Coins arrondis sur l'image */
@@ -147,7 +147,7 @@ button:hover {
 }
 
 .confirmation img {
-    max-width: 150px; /* Taille max de l'image dans la confirmation */
+    max-width: 350px; /* Taille max de l'image dans la confirmation */
     margin-bottom: 10px; /* Espace en dessous */
 }
 
