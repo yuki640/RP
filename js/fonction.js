@@ -1,15 +1,11 @@
 // On importe les données depuis d'autres fichiers JavaScript :
-// - 'heros' contient la liste des personnages jouables, avec leurs caractéristiques, image, etc.
-// - 'scenes' contient les différentes scènes de l'histoire, avec leurs choix et leurs conséquences.
 import { heros } from './personnages.js';
 import { scenes } from './scenes.js';
 
 // Objet 'joueur' qui stocke toutes les informations relatives au joueur actuel :
-// - hero : le héros choisi
-// - inventaire : les objets qu'il possède
-// - lieuxVisites : les lieux déjà visités au cours du jeu
 let joueur = {
     hero: null,
+    image: null,
     inventaire: [],
     lieuxVisites: []
 };
@@ -106,10 +102,15 @@ window.annulerConfirmation = function () {
 // Cette fonction affiche les statistiques du héros choisi dans la zone prévue (#statistiques).
 function afficherStatistiques() {
     const { stats } = joueur.hero;
-    document.getElementById('stat-vie').textContent = `Vie : ${stats.vie}`;
-    document.getElementById('stat-attaque').textContent = `Attaque : ${stats.attaque}`;
-    document.getElementById('stat-endurance').textContent = `Endurance : ${stats.endurance}`;
-    document.getElementById('stat-mana').textContent = `Mana : ${stats.mana}`;
+    
+    document.getElementById('statistiques').innerHTML = `
+        <img src="${joueur.hero.image}" alt="${joueur.hero.nom}">
+        <h2>${joueur.hero.nom}</h2>
+        <div id="stat-vie">Vie : ${stats.vie}</div>
+        <div id="stat-attaque">Attaque : ${stats.attaque}</div>
+        <div id="stat-endurance">Endurance : ${stats.endurance}</div>
+        <div id="stat-mana">Mana : ${stats.mana}</div>
+    `;
 }
 
 // Cette fonction permet de passer d'une scène à une autre.

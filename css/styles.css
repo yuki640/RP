@@ -87,6 +87,14 @@ button:hover {
     border-radius: 5px; /* Coins arrondis */
 }
 
+img{
+    width: 100%; /* L'image occupe toute la largeur disponible */
+    max-width: 250px; /* Limite la taille pour les grands écrans */
+    height: auto; /* Maintient les proportions */
+    margin-bottom: 10px; /* Espace sous l'image */
+    border-radius: 5px; /* Coins arrondis */
+}
+
 .personnage h3 {
     font-size: 20px; /* Titre légèrement plus grand */
     margin-bottom: 10px; /* Espace sous le titre */
