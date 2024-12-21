@@ -151,7 +151,8 @@ window.avancerScene = function (idScene) {
 
     // On ajoute le titre de la scène à l'historique pour garder une trace du cheminement
     const historiqueDiv = document.getElementById('contenu-historique');
-    historiqueDiv.innerHTML += `<p>${sceneActuelle.titre}</p>`;
+    historiqueDiv.innerHTML = `<p>${sceneActuelle.titre}</p>` + historiqueDiv.innerHTML;
+
 };
 
 // Le bouton "voir-inventaire" affiche une popup avec la liste des objets que le joueur possède.
