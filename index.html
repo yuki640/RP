@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <!-- Définition des métadonnées de la page -->
     <meta charset="UTF-8"> <!-- Définit l'encodage des caractères -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Permet un affichage correct sur mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Permet un affichage correct sur mobile -->
     <title>Jeu RP - Aventure</title> <!-- Titre de la page qui s'affichera dans l'onglet du navigateur -->
     <link rel="stylesheet" href="css/styles.css"> <!-- Lien vers le fichier CSS pour le style -->
     <link rel="icon" href="data:,"> <!-- Définit une icône vide pour éviter une erreur -->
 </head>
+
 <body>
     <!-- Couche semi-transparente pour afficher les popups (confirmation, inventaire, carte) -->
     <div id="confirmation-overlay"></div>
@@ -16,8 +19,10 @@
     <div id="jeu">
         <!-- Page d'accueil (affichée au début du jeu) -->
         <div id="accueil">
-            <img id="image-intro" src="images/hero.webp" alt="Image représentant un héros courageux"> <!-- Image d'introduction -->
-            <p id="texte-intro"><strong>Vous êtes un héros chargé de sauver le royaume. Êtes-vous prêt à commencer l'aventure ?</strong></p> <!-- Texte d'introduction -->
+            <img id="image-intro" src="images/hero.webp" alt="Image représentant un héros courageux">
+            <!-- Image d'introduction -->
+            <p id="texte-intro"><strong>Vous êtes un héros chargé de sauver le royaume. Êtes-vous prêt à commencer
+                    l'aventure ?</strong></p> <!-- Texte d'introduction -->
             <button id="demarrer">Démarrer l'aventure</button> <!-- Bouton pour lancer le jeu -->
         </div>
 
@@ -30,7 +35,7 @@
         <!-- Popup pour afficher des informations dynamiques (carte, inventaire, etc.) -->
         <div id="popup"></div>
 
-        
+
     </div>
 
     <!-- Section des statistiques du joueur -->
@@ -50,7 +55,7 @@
         <h3>Historique</h3> <!-- Titre de la section -->
         <div id="contenu-historique"></div> <!-- Contenu généré dynamiquement avec les titres des scènes visitées -->
     </div>
-    
+
     <!-- Section pour afficher la carte du jeu -->
     <div id="carte" style="display:none;">
         <button id="carte-close">Fermer</button> <!-- Bouton pour fermer la carte -->
@@ -66,4 +71,5 @@
     <script src="js/scenes.js"></script> <!-- Script contenant les données des scènes -->
     <script type="module" src="js/fonction.js"></script> <!-- Script principal pour gérer la logique du jeu -->
 </body>
+
 </html>
