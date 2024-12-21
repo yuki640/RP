@@ -177,6 +177,15 @@ img {
     /* Espace entre chaque ligne de la liste */
 }
 
+#jeu {
+    display: flex;
+    /* Organisation en ligne */
+    justify-content: center;
+    /* Centre les éléments horizontalement */
+    flex-wrap: wrap;
+    /* Passe à la ligne si nécessaire */
+}
+
 /* Images des scènes */
 #scene img {
     width: 100%;
