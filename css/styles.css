@@ -1,24 +1,25 @@
 /* Style général pour l'ensemble de la page */
 body {
-    font-family: Arial, sans-serif; /* Définit la police générale */
+    font-family: Arial, sans-serif; /* Police simple et lisible */
     background-color: #f4f4f4; /* Couleur de fond grise claire */
     margin: 0; /* Retire la marge par défaut du navigateur */
     padding: 0; /* Retire le padding par défaut du navigateur */
-    display: flex; /* Permet de disposer les éléments en flex (en ligne ou en colonne) */
-    flex-direction: row; /* Aligne les éléments (par exemple #jeu et #statistiques) horizontalement */
-    justify-content: center; /* Centre les éléments horizontalement */
-    align-items: flex-start; /* Aligne les éléments en haut (début de la zone) */
+    display: flex; /* Permet de disposer les éléments en flex */
+    flex-direction: column; /* Organisation verticale sur petits écrans */
+    align-items: center; /* Centre les éléments horizontalement */
+    width: 100%; /* S'assure que tout prend la largeur de l'écran */
 }
 
 /* Zone principale du jeu */
 #jeu {
-    flex: 3; /* Ce bloc prendra plus d'espace que #statistiques car flex:3 > flex:1 */
-    max-width: 800px; /* Limite la taille max horizontale du bloc principal */
-    margin-right: 20px; /* Espace à droite pour séparer du bloc #statistiques */
-    padding: 20px; /* Marge interne pour respirer le contenu */
+    width: 100%; /* Prend toute la largeur de l'écran sur mobile */
+    max-width: 800px; /* Limite la largeur maximale pour les grands écrans */
+    margin: 10px 0; /* Ajoute un espace au-dessus et en dessous */
+    padding: 20px; /* Ajoute de l'espace interne */
     background: #fff; /* Fond blanc */
     border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Légère ombre pour effet de relief */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce pour relief */
+    box-sizing: border-box; /* Inclut les bordures et marges dans la largeur totale */
 }
 
 /* Page d'accueil (introduction) centrée */
@@ -28,251 +29,168 @@ body {
 
 /* Style des boutons */
 button {
-    background-color: #007BFF; /* Bleu standard pour les boutons */
-    color: white; /* Texte blanc sur fond bleu */
-    border: none; /* Pas de bordure */
-    padding: 10px 20px; /* Espace interne autour du texte */
-    margin: 5px; /* Espace entre plusieurs boutons */
-    cursor: pointer; /* Change le curseur en main lors du survol */
-    font-size: 16px; /* Taille du texte dans les boutons */
-    border-radius: 5px; /* Coins légèrement arrondis */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce sur la couleur et la taille */
+    background-color: #007BFF; /* Couleur bleue standard */
+    color: white; /* Texte blanc */
+    border: none; /* Retire les bordures */
+    padding: 12px 20px; /* Espace interne confortable */
+    margin: 10px auto; /* Centre le bouton et ajoute de l'espace vertical */
+    cursor: pointer; /* Change le curseur en main */
+    font-size: 16px; /* Taille de texte lisible */
+    border-radius: 5px; /* Coins arrondis pour modernité */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation fluide au survol */
+    width: 90%; /* Prend presque toute la largeur sur mobile */
+    max-width: 300px; /* Limite la largeur pour les grands écrans */
 }
 
 button:hover {
-    background-color: #0056b3; /* Couleur un peu plus foncée au survol */
-    transform: scale(1.05); /* Légère augmentation de la taille au survol */
-}
-
-/* Style spécifique pour le bouton #demarrer */
-#demarrer {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#demarrer:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Couleur plus foncée au survol */
+    transform: scale(1.05); /* Légère mise en avant au survol */
 }
 
 /* Image d'introduction */
 #image-intro {
-    max-width: 100%; /* L'image ne dépassera pas la largeur de son conteneur */
-    height: auto; /* La hauteur s'adapte proportionnellement */
-    border-radius: 10px; /* Arrondit les coins de l'image */
-    margin-bottom: 15px; /* Espace sous l'image */
-}
-
-/* Image des scene */
- #scene img {
-    max-width: 100%; /* L'image ne dépassera pas la largeur de son conteneur */
-    height: auto; /* La hauteur s'adapte proportionnellement */
-    border-radius: 10px; /* Arrondit les coins de l'image */
+    width: 100%; /* L'image occupe toute la largeur */
+    max-width: 600px; /* Limite la taille pour les grands écrans */
+    height: auto; /* Maintient les proportions */
+    border-radius: 10px; /* Coins arrondis pour uniformité */
     margin-bottom: 15px; /* Espace sous l'image */
 }
 
 /* Texte d'introduction */
 #texte-intro {
-    font-size: 18px; /* Taille un peu plus grande pour bien lire */
+    font-size: 18px; /* Texte légèrement plus grand pour confort */
     margin: 20px 0; /* Espace vertical autour du texte */
-    text-align: center; /* Centré */
-    margin-bottom: 20px; /* Espace supplémentaire en bas */
+    text-align: center; /* Centre le texte */
+    line-height: 1.5; /* Augmente l'espacement entre les lignes pour lisibilité */
 }
 
 /* Section présentant les personnages */
 .personnage {
-    display: flex; /* Alignement des éléments internes en colonne */
+    display: flex; /* Organisation interne en colonne */
     flex-direction: column;
-    align-items: center; /* Aligne les éléments (image, titre) au centre */
-    margin-bottom: 20px; /* Espace entre chaque bloc personnage */
-    padding: 10px; /* Espace interne pour aérer le contenu */
-    border: 1px solid #ddd; /* Bordure grise claire */
+    align-items: center; /* Centre les images et les titres */
+    margin-bottom: 20px; /* Espace entre les personnages */
+    padding: 15px; /* Espace interne */
+    border: 1px solid #ddd; /* Bordure grise légère */
     border-radius: 5px; /* Coins légèrement arrondis */
-    background-color: #f9f9f9; /* Fond gris très clair */
+    background-color: #f9f9f9; /* Fond gris clair */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre pour relief */
+    width: 100%; /* Prend toute la largeur disponible */
+    max-width: 500px; /* Limite la largeur pour les grands écrans */
 }
 
 .personnage img {
-    max-width: 300px; /* Limite la taille de l'image */
-    height: auto; /* Hauteur proportionnelle à la largeur */
+    width: 100%; /* L'image occupe toute la largeur disponible */
+    max-width: 250px; /* Limite la taille pour les grands écrans */
+    height: auto; /* Maintient les proportions */
     margin-bottom: 10px; /* Espace sous l'image */
-    border-radius: 5px; /* Coins arrondis sur l'image */
+    border-radius: 5px; /* Coins arrondis */
 }
 
 .personnage h3 {
-    font-size: 20px; /* Titre du personnage un peu plus grand */
-    margin-bottom: 5px; /* Légère marge sous le titre */
+    font-size: 20px; /* Titre légèrement plus grand */
+    margin-bottom: 10px; /* Espace sous le titre */
 }
 
 .personnage ul {
     list-style: none; /* Retire les puces de liste */
-    padding: 0; /* Retire l'espace par défaut de la liste */
-    text-align: left; /* Le texte de la liste est aligné à gauche */
-    font-size: 14px; /* Taille de texte plus petite pour des détails */
+    padding: 0; /* Retire les marges internes */
+    text-align: left; /* Texte aligné à gauche */
+    font-size: 14px; /* Taille de texte pour les détails */
 }
 
 .personnage ul li {
     margin: 5px 0; /* Espace entre chaque ligne de la liste */
 }
 
-/* Fenêtre de confirmation (par exemple, lorsqu'on valide un choix) */
-.confirmation {
-    position: fixed; /* Reste visible même si on scroll */
-    top: 50%; /* Centré verticalement dans la page */
-    left: 50%; /* Centré horizontalement dans la page */
-    transform: translate(-50%, -50%); /* Ajuste la position pour être parfaitement au centre */
-    width: 400px; /* Largeur de la fenêtre de confirmation */
-    max-width: 90%; /* Sur petits écrans, rétrécit à 90% de la largeur */
-    text-align: center; /* Centré */
-    background-color: #fff; /* Fond blanc */
-    padding: 20px; /* Espace interne */
+/* Images des scènes */
+#scene img {
+    width: 100%; /* L'image prend toute la largeur disponible */
+    max-width: 600px; /* Limite la largeur pour les grands écrans */
+    height: auto; /* Maintient les proportions */
+    margin: 15px auto; /* Centre l'image et ajoute un espace vertical */
+    display: block; /* Assure que l'image est un élément de bloc */
     border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Légère ombre */
-    z-index: 1000; /* Au-dessus de tous les autres éléments */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour relief */
 }
 
-/* Fond sombre derrière la fenêtre de confirmation, pour la mettre en évidence */
+/* Fenêtre de confirmation */
+.confirmation {
+    position: fixed; /* Toujours visible même si on défile */
+    top: 50%; /* Centré verticalement */
+    left: 50%; /* Centré horizontalement */
+    transform: translate(-50%, -50%); /* Centre parfaitement la fenêtre */
+    width: 90%; /* Prend 90% de la largeur sur petits écrans */
+    max-width: 400px; /* Limite la largeur pour les grands écrans */
+    background-color: #fff; /* Fond blanc */
+    padding: 20px; /* Espace interne confortable */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    z-index: 1000; /* Devant tous les autres éléments */
+    text-align: center; /* Centre le contenu */
+}
+
+.confirmation img {
+    width: 100%; /* L'image prend toute la largeur disponible */
+    max-width: 300px; /* Limite la largeur maximale pour éviter qu'elle ne soit trop grande */
+    height: auto; /* Maintient les proportions */
+    margin: 10px auto; /* Centre l'image horizontalement et ajoute un espace vertical */
+    border-radius: 10px; /* Coins arrondis pour un effet esthétique */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre légère autour de l'image */
+    display: block; /* Assure que l'image est centrée */
+}
+
+/* Fond sombre derrière la confirmation */
 #confirmation-overlay {
-    position: fixed; /* Couvre l'ensemble de la page */
+    position: fixed; /* Couvre toute la page */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Noir transparent */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond noir transparent */
     z-index: 999; /* Juste derrière la confirmation */
-    display: none; /* Par défaut caché, s'affiche lorsque nécessaire */
+    display: none; /* Caché par défaut */
 }
 
-.confirmation img {
-    max-width: 350px; /* Taille max de l'image dans la confirmation */
-    margin-bottom: 10px; /* Espace en dessous */
-}
-
-.confirmation h2 {
-    font-size: 24px; /* Titre plus grand */
-    color: #555; /* Gris moyen */
-    margin-bottom: 10px; /* Espace sous le titre */
-}
-
-/* Historique des actions dans le jeu (textes, choix, etc.) */
-#historique {
-    margin-top: 20px; /* Espace au-dessus de l'historique */
-    background: #f9f9f9; /* Fond clair */
-    border: 1px solid #ddd; /* Bordure grise légère */
-    border-radius: 5px; /* Coins arrondis */
-    padding: 10px; /* Espace interne */
-    font-size: 14px; /* Texte un peu plus petit */
-}
-
-#contenu-historique {
-    max-height: 200px; /* Limite la hauteur du bloc historique */
-    overflow-y: auto; /* Barre de défilement si le contenu dépasse 200px */
-    font-family: "Courier New", monospace; /* Police type machine à écrire pour l'historique */
-}
-
-/* Section des statistiques sur le côté */
-#statistiques {
-    flex: 1; /* Prend moins de place que le jeu */
-    text-align: left; /* Texte aligné à gauche */
-    font-size: 16px; /* Taille de texte normale */
-    background: #f9f9f9; /* Fond clair */
-    padding: 20px; /* Espace interne */
-    border: 1px solid #ddd; /* Bordure grise */
-    border-radius: 5px; /* Coins arrondis */
-    max-width: 300px; /* Largeur maximale pour les statistiques */
-    height: auto; /* S'ajuste à la taille du contenu */
-}
-
-#statistiques h3 {
-    margin-top: 0; /* Pas d'espace au-dessus du titre */
-}
-
-#statistiques p {
-    margin: 5px 0; /* Espace vertical entre paragraphes */
-}
-
-/* Différents écrans ou sections cachés par défaut */
-#choix-personnage, 
-#scene, 
-#inventaire, 
-#carte {
-    display: none; /* Ces éléments sont cachés, ils apparaîtront via du JavaScript */
-}
-
-/* Boutons pour afficher la carte, l'inventaire, fermer la carte */
-#voir-carte, 
-#voir-inventaire, 
-#carte-close {
-    padding: 10px 20px; /* Espace interne */
-    font-size: 16px; /* Taille du texte */
-    background-color: #007bff; /* Bleu standard bouton */
-    color: #fff; /* Texte blanc */
-    border: none; /* Sans bordure */
-    border-radius: 5px; /* Coins arrondis */
-    cursor: pointer; /* Curseur en forme de main */
-    margin-top: 10px; /* Espace au-dessus */
-}
-
-#voir-carte:hover, 
-#voir-inventaire:hover, 
-#carte-close:hover {
-    background-color: #0056b3; /* Couleur plus foncée au survol */
-}
-
-/* Zone d'affichage de la carte */
-#carte {
-    padding: 20px; /* Espace interne */
-    background: #fff; /* Fond blanc */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre pour relief */
-    max-width: 800px; /* Largeur max de la carte */
-    margin: 20px auto; /* Centré et avec espace autour */
-    text-align: center; /* Contenu centré */
-}
-
-/* Popup général (pour afficher des infos sur la carte, par exemple) */
+/* Popup général */
 #popup {
-    position: fixed; /* Reste au même endroit si on scroll */
+    position: fixed; /* Toujours visible même si on défile */
     top: 50%; /* Centré verticalement */
     left: 50%; /* Centré horizontalement */
-    transform: translate(-50%, -50%); /* Ajustement pour centrer parfaitement */
-    width: 80%; /* Occupe 80% de la largeur de la fenêtre */
-    max-width: 500px; /* Largeur max du popup */
+    transform: translate(-50%, -50%); /* Centre parfaitement la fenêtre */
+    width: 90%; /* Prend 90% de la largeur sur petits écrans */
+    max-width: 500px; /* Limite la largeur pour les grands écrans */
     background-color: #fff; /* Fond blanc */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre autour */
-    z-index: 1000; /* Au-dessus des autres éléments */
     padding: 20px; /* Espace interne */
-    text-align: center; /* Centré */
-    display: none; /* Caché par défaut, sera affiché via JS */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    z-index: 1000; /* Devant tous les autres éléments */
+    text-align: center; /* Centre le contenu */
+    display: none; /* Caché par défaut */
 }
 
-/* Disposition de la carte sous forme de grille flexible */
-.map {
-    display: flex; /* Disposition en flex */
-    justify-content: space-evenly; /* Espace égal entre les éléments */
-    flex-wrap: wrap; /* Les éléments reviennent à la ligne si nécessaire */
-    gap: 10px; /* Espace entre les éléments de la carte */
-    margin: 20px 0; /* Espace au-dessus et en dessous de la carte */
-}
-
-/* Un lieu sur la carte (un bouton ou un bloc) */
-.map-lieu {
-    padding: 10px; /* Espace interne */
-    background-color: #007BFF; /* Bleu pour distinguer un lieu */
-    color: white; /* Texte en blanc pour contraster */
-    border-radius: 5px; /* Coins arrondis */
-    text-align: center; /* Centré */
-    min-width: 100px; /* Largeur minimale */
-    font-size: 14px; /* Texte un peu plus petit */
-}
-
-/* Adaptation aux écrans plus petits (responsive) */
+/* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Organisation verticale sur petits écrans */
+    }
+
     #jeu, #statistiques {
-        width: 100%; /* Sur petit écran, chaque bloc prend toute la largeur */
+        width: 100%; /* Prend toute la largeur */
+        margin: 10px 0; /* Réduit les marges entre les blocs */
+        padding: 10px; /* Réduit l'espace interne */
+    }
+
+    button {
+        width: 100%; /* Boutons prennent toute la largeur disponible */
+        font-size: 14px; /* Taille légèrement réduite pour mobile */
+    }
+
+    .personnage img, #scene img {
+        max-width: 100%; /* Les images s'adaptent à la largeur disponible */
+    }
+
+    .confirmation, #popup {
+        width: 95%; /* La popup s'adapte mieux aux petits écrans */
     }
 }
