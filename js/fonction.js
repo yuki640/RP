@@ -150,9 +150,12 @@ window.avancerScene = function (idScene) {
   ajouterLieu(sceneActuelle.lieux);
 
   // On ajoute le titre de la scène à l'historique pour garder une trace du cheminement
-  const historiqueDiv = document.getElementById("contenu-historique");
-  historiqueDiv.innerHTML =
-    `<p>${sceneActuelle.titre}</p>` + historiqueDiv.innerHTML;
+const historiqueDiv = document.getElementById("contenu-historique");
+
+// Vérifier si le dernier élément a le même titre
+if (!historiqueDiv.firstChild || historiqueDiv.firstChild.textContent !== sceneActuelle.titre) {
+  historiqueDiv.innerHTML = `<p>${sceneActuelle.titre}</p>` + historiqueDiv.innerHTML;
+}
 };
 
 // Le bouton "voir-inventaire" affiche une popup avec la liste des objets que le joueur possède.
