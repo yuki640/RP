@@ -48,6 +48,7 @@ const ennemis = [
       vie: 50,
       attaque: 10,
     },
+    recompence:[],
   },
   {
     nom: "Squelette",
@@ -57,6 +58,7 @@ const ennemis = [
       vie: 80,
       attaque: 15,
     },
+    recompence:[],
   },
   {
     nom: "Orc",
@@ -66,5 +68,6 @@ const ennemis = [
       vie: 100,
       attaque: 20,
     },
+    recompence:[],
   },
 ];
