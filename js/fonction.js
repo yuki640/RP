@@ -158,6 +158,7 @@ if (!historiqueDiv.firstChild || historiqueDiv.firstChild.textContent !== sceneA
 }
 };
 
+tesr
 // Le bouton "voir-inventaire" affiche une popup avec la liste des objets que le joueur possède.
 document.getElementById("voir-inventaire").addEventListener("click", () => {
   const inventaireDiv = document.getElementById("popup");
