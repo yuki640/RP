@@ -110,7 +110,36 @@ function afficherStatistiques() {
         <div id="stat-attaque">Attaque : ${stats.attaque}</div>
         <div id="stat-endurance">Endurance : ${stats.endurance}</div>
         <div id="stat-mana">Mana : ${stats.mana}</div>
+        <button id="voir-carte">Voir la carte</button>
+        <button id="voir-inventaire">Inventaire</button>
     `;
+
+  // Réassocie les événements des boutons après la mise à jour
+  document.getElementById("voir-inventaire").addEventListener("click", () => {
+    const inventaireDiv = document.getElementById("popup");
+    inventaireDiv.style.display = "block";
+    inventaireDiv.innerHTML = `
+            <h3>Inventaire</h3>
+            <ul>
+                ${joueur.inventaire.map((item) => `<li>${item}</li>`).join("")}
+            </ul>
+            <button onclick="fermerPopup()">Fermer</button>
+        `;
+  });
+
+  document.getElementById("voir-carte").addEventListener("click", () => {
+    const carteDiv = document.getElementById("popup");
+    carteDiv.style.display = "block";
+    carteDiv.innerHTML = `
+            <h3>Carte</h3>
+            <div class="map">
+                ${joueur.lieuxVisites
+                  .map((lieu) => `<div class="map-lieu">${lieu}</div>`)
+                  .join("")}
+            </div>
+            <button onclick="fermerPopup()">Fermer</button>
+        `;
+  });
 }
 
 // Cette fonction permet de passer d'une scène à une autre.
