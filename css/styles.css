@@ -232,6 +232,13 @@ img {
     /* Centre le contenu */
 }
 
+#statistiques{
+    display: grid;
+    /* Organisation en ligne */
+    justify-content: center;
+    /* Centre les éléments horizontalement */
+}
+
 .confirmation img {
     width: 100%;
     /* L'image prend toute la largeur disponible */
