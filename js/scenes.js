@@ -29,6 +29,7 @@ export const scenes = [
   {
     id: 4,
     titre: "La forêt sombre",
+    lieux:"clairière",
     image: "./images/foret.webp",
     description:
       "Vous trouvez une clairière lumineuse où vous pouvez vous reposer en toute sécurité.",
