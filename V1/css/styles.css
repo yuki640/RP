@@ -1,335 +1,173 @@
-/* Style général pour l'ensemble de la page */
+/* Variables CSS */
+:root {
+    --background-color: #f4f4f4;
+    --header-background: #ccc;
+    --header-border: #bbb;
+    --gray: gray;
+    --white: #fff;
+    --light-gray: #ddd;
+    --text-background: #f5f5f5;
+    --border-color: #ddd;
+    --box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Styles globaux */
 body {
     font-family: Arial, sans-serif;
-    /* Police simple et lisible */
-    background-color: #f4f4f4;
-    /* Couleur de fond grise claire */
     margin: 0;
-    /* Retire la marge par défaut du navigateur */
     padding: 0;
-    /* Retire le padding par défaut du navigateur */
-    display: flex;
-    /* Permet de disposer les éléments en flex */
-    flex-direction: column;
-    /* Organisation verticale sur petits écrans */
-    align-items: center;
-    /* Centre les éléments horizontalement */
-    width: 100%;
-    /* S'assure que tout prend la largeur de l'écran */
-}
-
-/* Zone principale du jeu */
-#jeu {
-    width: 100%;
-    /* Prend toute la largeur de l'écran sur mobile */
-    max-width: 800px;
-    /* Limite la largeur maximale pour les grands écrans */
-    margin: 10px 0;
-    /* Ajoute un espace au-dessus et en dessous */
-    padding: 20px;
-    /* Ajoute de l'espace interne */
-    background: #fff;
-    /* Fond blanc */
-    border-radius: 10px;
-    /* Coins arrondis */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* Ombre douce pour relief */
     box-sizing: border-box;
-    /* Inclut les bordures et marges dans la largeur totale */
+    background-color: var(--background-color);
 }
 
-/* Page d'accueil (introduction) centrée */
-#accueil {
-    text-align: center;
-    /* Texte centré */
-}
-
-/* Style des boutons */
-button {
-    background-color: #007BFF;
-    /* Couleur bleue standard */
-    color: white;
-    /* Texte blanc */
-    border: none;
-    /* Retire les bordures */
-    padding: 12px 20px;
-    /* Espace interne confortable */
-    margin: 10px auto;
-    /* Centre le bouton et ajoute de l'espace vertical */
-    cursor: pointer;
-    /* Change le curseur en main */
-    font-size: 16px;
-    /* Taille de texte lisible */
-    border-radius: 5px;
-    /* Coins arrondis pour modernité */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    /* Animation fluide au survol */
-    width: 90%;
-    /* Prend presque toute la largeur sur mobile */
-    max-width: 300px;
-    /* Limite la largeur pour les grands écrans */
-}
-
-button:hover {
-    background-color: #0056b3;
-    /* Couleur plus foncée au survol */
-    transform: scale(1.05);
-    /* Légère mise en avant au survol */
-}
-
-/* Image d'introduction */
-#image-intro {
-    width: 100%;
-    /* L'image occupe toute la largeur */
-    max-width: 600px;
-    /* Limite la taille pour les grands écrans */
-    height: auto;
-    /* Maintient les proportions */
-    border-radius: 10px;
-    /* Coins arrondis pour uniformité */
-    margin-bottom: 15px;
-    /* Espace sous l'image */
-}
-
-/* Texte d'introduction */
-#texte-intro {
-    font-size: 18px;
-    /* Texte légèrement plus grand pour confort */
-    margin: 20px 0;
-    /* Espace vertical autour du texte */
-    text-align: center;
-    /* Centre le texte */
-    line-height: 1.5;
-    /* Augmente l'espacement entre les lignes pour lisibilité */
-}
-
-/* Section présentant les personnages */
-.personnage {
+/* Header */
+.header-historique {
     display: flex;
-    /* Organisation interne en colonne */
-    flex-direction: column;
-    align-items: center;
-    /* Centre les images et les titres */
-    margin-bottom: 20px;
-    /* Espace entre les personnages */
-    padding: 15px;
-    /* Espace interne */
-    border: 1px solid #ddd;
-    /* Bordure grise légère */
-    border-radius: 5px;
-    /* Coins légèrement arrondis */
-    background-color: #f9f9f9;
-    /* Fond gris clair */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Légère ombre pour relief */
-    width: 100%;
-    /* Prend toute la largeur disponible */
-    max-width: 500px;
-    /* Limite la largeur pour les grands écrans */
-}
-
-.personnage img {
-    width: 100%;
-    /* L'image occupe toute la largeur disponible */
-    max-width: 250px;
-    /* Limite la taille pour les grands écrans */
-    height: auto;
-    /* Maintient les proportions */
-    margin-bottom: 10px;
-    /* Espace sous l'image */
-    border-radius: 5px;
-    /* Coins arrondis */
-}
-
-img {
-    width: 100%;
-    /* L'image occupe toute la largeur disponible */
-    max-width: 250px;
-    /* Limite la taille pour les grands écrans */
-    height: auto;
-    /* Maintient les proportions */
-    margin-bottom: 10px;
-    /* Espace sous l'image */
-    border-radius: 5px;
-    /* Coins arrondis */
-}
-
-.personnage h3 {
-    font-size: 20px;
-    /* Titre légèrement plus grand */
-    margin-bottom: 10px;
-    /* Espace sous le titre */
-}
-
-.personnage ul {
-    list-style: none;
-    /* Retire les puces de liste */
-    padding: 0;
-    /* Retire les marges internes */
-    text-align: left;
-    /* Texte aligné à gauche */
-    font-size: 14px;
-    /* Taille de texte pour les détails */
-}
-
-.personnage ul li {
-    margin: 5px 0;
-    /* Espace entre chaque ligne de la liste */
-}
-
-#jeu {
-    display: flex;
-    /* Organisation en ligne */
     justify-content: center;
-    /* Centre les éléments horizontalement */
-    flex-wrap: wrap;
-    /* Passe à la ligne si nécessaire */
+    background-color: var(--header-background);
+    padding: 10px;
+    border-bottom: 2px solid var(--header-border);
 }
 
-/* Images des scènes */
-#scene img {
-    width: 100%;
-    /* L'image prend toute la largeur disponible */
-    max-width: 600px;
-    /* Limite la largeur pour les grands écrans */
-    height: auto;
-    /* Maintient les proportions */
-    margin: 15px auto;
-    /* Centre l'image et ajoute un espace vertical */
-    display: block;
-    /* Assure que l'image est un élément de bloc */
-    border-radius: 10px;
-    /* Coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Ombre légère pour relief */
+.header-historique div {
+    width: 50px;
+    height: 50px;
+    background-color: var(--gray);
+    border-radius: 50%;
+    margin: 0 5px;
 }
 
-/* Fenêtre de confirmation */
-.confirmation {
-    position: fixed;
-    /* Toujours visible même si on défile */
-    top: 50%;
-    /* Centré verticalement */
-    left: 50%;
-    /* Centré horizontalement */
-    transform: translate(-50%, -50%);
-    /* Centre parfaitement la fenêtre */
-    width: 90%;
-    /* Prend 90% de la largeur sur petits écrans */
-    max-width: 400px;
-    /* Limite la largeur pour les grands écrans */
-    background-color: #fff;
-    /* Fond blanc */
+/* Section Histoire */
+.histoire {
+    display: flex;
     padding: 20px;
-    /* Espace interne confortable */
+    background-color: var(--white);
+    margin: 20px auto;
     border-radius: 10px;
-    /* Coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Ombre légère */
-    z-index: 1000;
-    /* Devant tous les autres éléments */
-    text-align: center;
-    /* Centre le contenu */
+    max-width: 800px;
+    box-shadow: 0 2px 10px var(--box-shadow);
 }
 
-#statistiques{
-    display: grid;
-    /* Organisation en ligne */
-    justify-content: center;
-    /* Centre les éléments horizontalement */
+.histoire-scenes {
+    flex: 3;
+    padding-right: 10px;
 }
 
-.confirmation img {
-    width: 100%;
-    /* L'image prend toute la largeur disponible */
-    max-width: 300px;
-    /* Limite la largeur maximale pour éviter qu'elle ne soit trop grande */
+.scenes-imgage {
     height: auto;
-    /* Maintient les proportions */
-    margin: 10px auto;
-    /* Centre l'image horizontalement et ajoute un espace vertical */
+    background-color: var(--light-gray);
+    margin-bottom: 10px;
     border-radius: 10px;
-    /* Coins arrondis pour un effet esthétique */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Ajoute une ombre légère autour de l'image */
-    display: block;
-    /* Assure que l'image est centrée */
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--box-shadow);
 }
 
-/* Fond sombre derrière la confirmation */
-#confirmation-overlay {
-    position: fixed;
-    /* Couvre toute la page */
-    top: 0;
-    left: 0;
+.scenes-imgage img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.scenes-text {
+    height: 100px;
+    background-color: var(--text-background);
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: auto;
+    font-size: 14px;
+}
+
+.scenes-Choix {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.scenes-Choix button {
+    flex: 1 1 30%;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.scenes-Choix button:hover {
+    background-color: #d0d0d0;
+}
+
+.statistics {
+    flex: 1;
+    background-color: var(--white);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-left: 2px solid var(--border-color);
+    align-items: center;
+}
+
+.statistics-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--box-shadow);
+    margin-bottom: 10px;
+}
+
+.statistics-image img {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fond noir transparent */
-    z-index: 999;
-    /* Juste derrière la confirmation */
-    display: none;
-    /* Caché par défaut */
+    object-fit: cover;
 }
 
-/* Popup général */
-#popup {
-    position: fixed;
-    /* Toujours visible même si on défile */
-    top: 50%;
-    /* Centré verticalement */
-    left: 50%;
-    /* Centré horizontalement */
-    transform: translate(-50%, -50%);
-    /* Centre parfaitement la fenêtre */
-    width: 90%;
-    /* Prend 90% de la largeur sur petits écrans */
-    max-width: 500px;
-    /* Limite la largeur pour les grands écrans */
-    background-color: #fff;
-    /* Fond blanc */
-    padding: 20px;
-    /* Espace interne */
-    border-radius: 10px;
-    /* Coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Ombre légère */
-    z-index: 1000;
-    /* Devant tous les autres éléments */
-    text-align: center;
-    /* Centre le contenu */
-    display: none;
-    /* Caché par défaut */
+.statistics div {
+    width: 100%;
+    height: 50px;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 1px 3px var(--box-shadow);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    #jeu,
-    #statistiques {
-        width: 100%;
-        /* Prend toute la largeur */
-        margin: 10px 0;
-        /* Réduit les marges entre les blocs */
-        padding: 10px;
-        /* Réduit l'espace interne */
-    }
+.footer-inventaire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-background);
+    padding: 10px;
+    border-top: 2px solid var(--header-border);
+}
 
-    button {
-        width: 100%;
-        /* Boutons prennent toute la largeur disponible */
-        font-size: 14px;
-        /* Taille légèrement réduite pour mobile */
-    }
+.footer-inventaire div {
+    width: 40px;
+    height: 40px;
+    background-color: var(--gray);
+    border-radius: 50%;
+    margin: 0 5px;
+    box-shadow: 0 1px 3px var(--box-shadow);
+}
 
-    .personnage img,
-    #scene img {
-        max-width: 100%;
-        /* Les images s'adaptent à la largeur disponible */
-    }
+.footer-inventaire .arrow {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: solid 2px var(--gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
 
-    .confirmation,
-    #popup {
-        width: 95%;
-        /* La popup s'adapte mieux aux petits écrans */
-    }
+.footer-inventaire .arrow:hover {
+    transform: scale(1.2);
 }

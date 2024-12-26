@@ -2,74 +2,62 @@
 <html lang="fr">
 
 <head>
-    <!-- Définition des métadonnées de la page -->
-    <meta charset="UTF-8"> <!-- Définit l'encodage des caractères -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Permet un affichage correct sur mobile -->
-    <title>Jeu RP - Aventure</title> <!-- Titre de la page qui s'affichera dans l'onglet du navigateur -->
-    <link rel="stylesheet" href="css/styles.css"> <!-- Lien vers le fichier CSS pour le style -->
-    <link rel="icon" href="data:,"> <!-- Définit une icône vide pour éviter une erreur -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" type="image/png" href="./images/hero.webp" />
+    <title>BlueVenture</title>
 </head>
 
 <body>
-    <!-- Couche semi-transparente pour afficher les popups (confirmation, inventaire, carte) -->
-    <div id="confirmation-overlay"></div>
+    <header class="header-historique">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </header>
 
-    <!-- Section principale du jeu -->
-    <div id="jeu">
-        <!-- Page d'accueil (affichée au début du jeu) -->
-        <div id="accueil">
-            <img id="image-intro" src="images/hero.webp" alt="Image représentant un héros courageux">
-            <!-- Image d'introduction -->
-            <p id="texte-intro"><strong>Vous êtes un héros chargé de sauver le royaume. Êtes-vous prêt à commencer
-                    l'aventure ?</strong></p> <!-- Texte d'introduction -->
-            <button id="demarrer">Démarrer l'aventure</button> <!-- Bouton pour lancer le jeu -->
-        </div>
+    <main class="histoire">
+        <section class="histoire-scenes">
+            <div class="scenes-imgage">
+                <img src="./images/hero.webp" alt="Image de la scène 1">
+            </div>
+            <div class="scenes-text">
+                Bonjour et bienvenue dans mon jeu ! J'espère que cela vous plaira.
+                C'est un jeu à choix, mais attention : vous verrez que cela risque de ne pas être aussi simple qu'il en a l'air !
+            </div>
+            <div class="scenes-Choix">
+                <button>Choix 1</button>
+                <button>Choix 2</button>
+                <button>Choix 3</button>
+                <button>Choix 4</button>
+                <button>Choix 5</button>
+                <button>Choix 6</button>
+            </div>
+        </section>
+        <section class="statistics">
+            <div class="statistics-image">
+                <img src="./images/guerrier.webp" alt="Image du héros">
+            </div>
+            <div>Vie :</div>
+            <div>Attaque :</div>
+            <div>Défense :</div>
+            <div>Mana :</div>
+        </section>        
+    </main>
 
-        <!-- Section pour afficher le choix du personnage -->
-        <div id="choix-personnage" style="display:none;"></div>
-
-        <!-- Section pour afficher la scène actuelle (texte et options de choix) -->
-        <div id="scene" style="display:none;"></div>
-
-        <!-- Popup pour afficher des informations dynamiques (carte, inventaire, etc.) -->
-        <div id="popup"></div>
-
-
-    </div>
-
-    <!-- Section des statistiques du joueur -->
-    <div id="statistiques">
-        <h3>Statistiques du joueur</h3>
-        <p id="stat-vie">Vie : --</p> <!-- Statistique : Vie -->
-        <p id="stat-attaque">Attaque : --</p> <!-- Statistique : Attaque -->
-        <p id="stat-endurance">Endurance : --</p> <!-- Statistique : Endurance -->
-        <p id="stat-mana">Mana : --</p> <!-- Statistique : Mana -->
-        <!-- Boutons pour accéder à la carte et à l'inventaire -->
-        <button id="voir-carte">Voir la carte</button>
-        <button id="voir-inventaire">Inventaire</button>
-    </div>
-
-    <!-- Section historique pour afficher les scènes visitées -->
-    <div id="historique">
-        <h3>Historique</h3> <!-- Titre de la section -->
-        <div id="contenu-historique"></div> <!-- Contenu généré dynamiquement avec les titres des scènes visitées -->
-    </div>
-
-    <!-- Section pour afficher la carte du jeu -->
-    <div id="carte" style="display:none;">
-        <button id="carte-close">Fermer</button> <!-- Bouton pour fermer la carte -->
-        <h3>Carte</h3>
-        <p>Aucun lieu exploré pour le moment.</p> <!-- Texte par défaut avant que les lieux soient ajoutés -->
-    </div>
-
-    <!-- Section pour afficher l'inventaire du joueur -->
-    <div id="inventaire" style="display:none;"></div>
-
-    <!-- Inclusion des scripts nécessaires au jeu -->
-    <script src="js/personnages.js"></script> <!-- Script contenant les données des héros -->
-    <script src="js/scenes.js"></script> <!-- Script contenant les données des scènes -->
-    <script type="module" src="js/fonction.js"></script> <!-- Script principal pour gérer la logique du jeu -->
+    <footer class="footer-inventaire">
+        <div class="arrow">&#8249;</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="arrow">&#8250;</div>
+    </footer>
 </body>
+
+<!-- <script src="./js/index.js"></script> -->
 
 </html>
