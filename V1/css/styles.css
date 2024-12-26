@@ -23,18 +23,40 @@ body {
 /* Header */
 .header-historique {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--header-background);
     padding: 10px;
     border-bottom: 2px solid var(--header-border);
 }
 
-.header-historique div {
+.header-historique .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50px;
     height: 50px;
     background-color: var(--gray);
     border-radius: 50%;
-    margin: 0 5px;
+    box-shadow: 0 2px 4px var(--box-shadow);
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
+}
+
+.header-historique .arrow:hover {
+    background-color: var(--light-gray);
+    transform: scale(1.1);
+}
+
+.header-historique .arrow svg {
+    fill: var(--white);
+    width: 24px;
+    height: 24px;
+    transition: fill 0.3s;
+}
+
+.header-historique .arrow:hover svg {
+    fill: var(--gray);
 }
 
 /* Section Histoire */
@@ -171,3 +193,5 @@ body {
 .footer-inventaire .arrow:hover {
     transform: scale(1.2);
 }
+
+/* Ajoutez d'autres styles ici */

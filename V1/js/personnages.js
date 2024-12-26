@@ -6,7 +6,7 @@ export const heros = [
     stats: {
       vie: 150,
       attaque: 20,
-      endurance: 15,
+      defance: 15,
       mana: 0,
     },
     inventaire: ["Épée", "Bouclier"],
@@ -19,7 +19,7 @@ export const heros = [
     stats: {
       vie: 100,
       attaque: 15,
-      endurance: 5,
+      defance: 5,
       mana: 50,
     },
     inventaire: ["Bâton magique", "Parchemin de feu"],
@@ -31,7 +31,7 @@ export const heros = [
     stats: {
       vie: 120,
       attaque: 18,
-      endurance: 10,
+      defance: 0,
       mana: 10,
     },
     inventaire: ["Arc", "Flèches"],
