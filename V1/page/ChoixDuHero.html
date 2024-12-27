@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/choixPersonage.css">
+    <link rel="icon" type="image/png" href="./images/hero.webp" />
+    <title>Choix du héro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .character-selection {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .character-card {
+            background-color: #282846;
+            border: 2px solid #555;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .character-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-card img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .character-card button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0078ff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .character-card button:hover {
+            background-color: #005bb5;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #282846;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-buttons .confirm {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .modal-buttons .cancel {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        @media (min-width: 768px) {
+            .character-selection {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Choisissez votre personnage pour devenir un héro</h1>
+    <div class="character-selection" id="character-selection">
+        <!-- Les personnages seront chargés ici -->
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <p id="modal-stats"></p>
+            <div class="modal-buttons">
+                <button class="cancel" id="cancel-btn">Annuler</button>
+                <button class="confirm" id="confirm-btn">Confirmer</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { heros } from '../js/personnages.js';
+
+        const characterSelection = document.getElementById('character-selection');
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const modalStats = document.getElementById('modal-stats');
+        const confirmBtn = document.getElementById('confirm-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+
+        let selectedHero = null;
+
+        heros.forEach((hero, index) => {
+            const card = document.createElement('div');
+            card.classList.add('character-card');
+
+            card.innerHTML = `
+                <img src="${hero.image}" alt="${hero.nom}">
+                <h2>${hero.nom}</h2>
+                <p>${hero.description}</p>
+                <button data-index="${index}">Sélectionner</button>
+            `;
+
+            characterSelection.appendChild(card);
+        });
+
+        characterSelection.addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                const index = event.target.getAttribute('data-index');
+                selectedHero = heros[index];
+
+                modalTitle.textContent = selectedHero.nom;
+                modalDescription.textContent = selectedHero.description;
+                modalStats.textContent = `
+                    Vie: ${selectedHero.stats.vie} | Attaque: ${selectedHero.stats.attaque} | Défense: ${selectedHero.stats.defance} | Mana: ${selectedHero.stats.mana}
+                    Inventaire: ${selectedHero.inventaire.join(', ')}
+                `;
+
+                modal.style.display = 'flex';
+            }
+        });
+
+        confirmBtn.addEventListener('click', () => {
+            alert(`Vous avez choisi ${selectedHero.nom} !`);
+            modal.style.display = 'none';
+            // Ajoutez ici la logique pour continuer le jeu
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@ export const heros = [
   {
     nom: "Guerrier",
     description: "Fort et courageux, spécialisé dans les combats rapprochés.",
-    image: "./images/guerrier.webp",
+    image: "../images/guerrier.webp",
     stats: {
       vie: 150,
       attaque: 20,
@@ -15,7 +15,7 @@ export const heros = [
     nom: "Mage",
     description:
       "Maître des arcanes, utilise la magie pour infliger des dégâts.",
-    image: "./images/mage.webp",
+    image: "../images/mage.webp",
     stats: {
       vie: 100,
       attaque: 15,
@@ -27,7 +27,7 @@ export const heros = [
   {
     nom: "Archer",
     description: "Rapide et précis, inflige des dégâts à distance.",
-    image: "./images/archer.webp",
+    image: "../images/archer.webp",
     stats: {
       vie: 120,
       attaque: 18,
