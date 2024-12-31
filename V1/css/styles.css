@@ -80,7 +80,7 @@ body {
     padding-right: 20px;
 }
 
-.scenes-imgage {
+.scenes-image {
     height: auto;
     background-color: var(--light-gray);
     margin-bottom: 15px;
@@ -89,7 +89,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.scenes-imgage img {
+.scenes-image img {
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -98,7 +98,7 @@ body {
     transition: transform 0.3s;
 }
 
-.scenes-imgage img:hover {
+.scenes-image img:hover {
     transform: scale(1.02);
 }
 
@@ -115,13 +115,13 @@ body {
 }
 
 /* Section Choix */
-.scenes-Choix {
+.scenes-choix {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
 }
 
-.scenes-Choix button {
+.scenes-choix button {
     flex: 1 1 45%;
     padding: 15px 20px;
     background-color: #0078d7;
@@ -135,7 +135,7 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.scenes-Choix button:hover {
+.scenes-choix button:hover {
     background-color: #005bb5;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -211,7 +211,7 @@ body {
 }
 
 /* Transitions */
-.scenes-titre, .scenes-text, .scenes-imgage img {
+.scenes-titre, .scenes-text, .scenes-image img {
     transition: opacity 0.5s ease;
 }
 

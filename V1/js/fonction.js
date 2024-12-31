@@ -8,7 +8,7 @@ let hero = {
     image: null,
     vie: 0,
     attaque: 0,
-    defense: 0,
+    defense: 0, // Correction orthographique de "defence"
     mana: 0,
     inventaire: [],
     lieuxVisites: [],
@@ -24,11 +24,16 @@ let currentSceneIndex = 0;
 function afficherScene(index) {
     const scene = scenes[index]; // Récupère la scène correspondante
 
+    if (!scene) {
+        console.error(`Aucune scène trouvée pour l'index ${index}`);
+        return; // Arrête l'exécution si la scène est introuvable
+    }
+
     // Met à jour le titre de la scène
     document.querySelector('.scenes-titre').textContent = scene.titre;
 
     // Met à jour l'image de la scène
-    const sceneImage = document.querySelector('.scenes-imgage img');
+    const sceneImage = document.querySelector('.scenes-image img');
     sceneImage.src = scene.image;
     sceneImage.alt = `Image de la scène ${scene.titre}`;
 
@@ -36,23 +41,23 @@ function afficherScene(index) {
     document.querySelector('.scenes-text').textContent = scene.description;
 
     // Ajoute le lieu de la scène dans l'historique
-    const historique = document.querySelector('.Historique');
+    const historique = document.querySelector('.historique');
     const lieuDiv = document.createElement('div');
     lieuDiv.textContent = scene.lieux;
     historique.appendChild(lieuDiv);
 
     // Met à jour les choix
-    const sceneChoix = document.querySelector('.scenes-Choix');
+    const sceneChoix = document.querySelector('.scenes-choix');
     sceneChoix.innerHTML = ''; // Vide les anciens choix
     scene.choices.forEach(choix => {
         const bouton = document.createElement('button');
-        bouton.textContent = choix.text; // Texte du choix
+        bouton.textContent = choix.text;
         bouton.addEventListener('click', () => gererChoix(choix)); // Gestionnaire d'événement pour le choix
         sceneChoix.appendChild(bouton);
     });
 
-    // Ajoute une transition visuelle
-    const sceneElements = document.querySelectorAll('.scenes-titre, .scenes-text, .scenes-imgage img');
+    // Ajoute une transition visuelle (facultative)
+    const sceneElements = document.querySelectorAll('.scenes-titre, .scenes-text, .scenes-image img');
     sceneElements.forEach(el => el.classList.add('hidden')); // Masque les éléments
     setTimeout(() => {
         sceneElements.forEach(el => el.classList.remove('hidden')); // Affiche après une courte transition
@@ -84,25 +89,22 @@ function gererChoix(choix) {
  * Fonction pour attribuer le héros "Voleur" au joueur
  */
 function assignerVoleur() {
-    const Voleur = heros.find(h => h.nom === "Voleur"); // Recherche avec "nom"
-    if (Voleur) {
-        hero.id = Voleur.id || null; // Assure que l'id est attribué
-        hero.name = Voleur.nom; // Utilise "nom" pour le nom du héros
-        hero.image = Voleur.image;
-        hero.vie = Voleur.stats.vie; // Les stats sont dans un objet "stats"
-        hero.attaque = Voleur.stats.attaque;
-        hero.defense = Voleur.stats.defense;
-        hero.mana = Voleur.stats.mana;
-        hero.inventaire = [...Voleur.inventaire];
+    const voleur = heros.find(h => h.nom === "Voleur"); // Recherche avec "nom"
+    if (voleur) {
+        hero.id = voleur.id || null; // Assure que l'id est attribué
+        hero.name = voleur.nom;
+        hero.image = voleur.image;
+        hero.vie = voleur.stats.vie; // Les stats sont dans un objet "stats"
+        hero.attaque = voleur.stats.attaque;
+        hero.defense = voleur.stats.defense; // Correction orthographique
+        hero.mana = voleur.stats.mana;
+        hero.inventaire = [...voleur.inventaire];
 
-        // Met à jour l'affichage des statistiques
-        afficherStatistiques();
+        afficherStatistiques(); // Met à jour l'affichage des statistiques
     } else {
         console.error("Le héros 'Voleur' n'a pas été trouvé.");
     }
 }
-
-
 
 /**
  * Fonction pour afficher les statistiques du joueur
@@ -112,8 +114,8 @@ function afficherStatistiques() {
 
     // Met à jour l'image du héros
     const heroImage = statisticsSection.querySelector('.statistics-image img');
-    heroImage.src = hero.image; // Source de l'image
-    heroImage.alt = `Image de ${hero.name}`; // Texte alternatif
+    heroImage.src = hero.image || ''; // Vérifie que l'image existe
+    heroImage.alt = hero.name ? `Image de ${hero.name}` : ''; // Vérifie que le nom existe
 
     // Met à jour les statistiques
     document.getElementById('vie').textContent = `Vie : ${hero.vie}`;
@@ -122,6 +124,5 @@ function afficherStatistiques() {
     document.getElementById('mana').textContent = `Mana : ${hero.mana}`;
 }
 
-
-// Affiche la première scène au démarrage
-document.querySelector('.scenes-Choix button').addEventListener('click', () => afficherScene(currentSceneIndex));
+// Lancer la première scène
+document.querySelector('.scenes-choix button').addEventListener('click', () => afficherScene(currentSceneIndex));

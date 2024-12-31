@@ -6,20 +6,19 @@ export const heros = [
     stats: {
       vie: 150,
       attaque: 20,
-      defance: 15,
+      defense: 15,
       mana: 0,
     },
     inventaire: ["Épée", "Bouclier"],
   },
   {
     nom: "Mage",
-    description:
-      "Maître des arcanes, utilise la magie pour infliger des dégâts.",
+    description: "Maître des arcanes, utilise la magie pour infliger des dégâts.",
     image: "../images/mage.webp",
     stats: {
       vie: 100,
       attaque: 15,
-      defance: 5,
+      defense: 5,
       mana: 50,
     },
     inventaire: ["Bâton magique", "Parchemin de feu"],
@@ -31,24 +30,25 @@ export const heros = [
     stats: {
       vie: 120,
       attaque: 18,
-      defance: 0,
+      defense: 0,
       mana: 10,
     },
     inventaire: ["Arc", "Flèches"],
   },
   {
-    nom : "Voleur",
+    nom: "Voleur",
     description: "Furtif et agile, spécialisé dans les attaques surprises.",
     image: "../images/voleur.webp",
     stats: {
       vie: 100,
       attaque: 30,
-      defance: 10,
+      defense: 10,
       mana: 0,
     },
     inventaire: ["Dague", "Potion de poison"],
   }
 ];
+
 
 const ennemis = [
   {
