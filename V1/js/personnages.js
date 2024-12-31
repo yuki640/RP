@@ -36,6 +36,18 @@ export const heros = [
     },
     inventaire: ["Arc", "Flèches"],
   },
+  {
+    nom : "Voleur",
+    description: "Furtif et agile, spécialisé dans les attaques surprises.",
+    image: "../images/voleur.webp",
+    stats: {
+      vie: 100,
+      attaque: 30,
+      defance: 10,
+      mana: 0,
+    },
+    inventaire: ["Dague", "Potion de poison"],
+  }
 ];
 
 const ennemis = [

@@ -29,26 +29,29 @@
 
     <main class="histoire">
         <section class="histoire-scenes">
+            <div class="scenes-titre">
+            </div>
             <div class="scenes-imgage">
-                <img src="./images/hero.webp" alt="Image de la scène 1">
+                <img src="./images/hero.webp" alt="Image des scènes">
             </div>
             <div class="scenes-text">
                 Bonjour et bienvenue dans mon jeu ! J'espère que cela vous plaira.
                 C'est un jeu à choix, mais attention : vous verrez que cela risque de ne pas être aussi simple qu'il en a l'air !
             </div>
             <div class="scenes-Choix">
-                <button>Next</button>
+                <button>Commencer</button>
             </div>
         </section>
         <section class="statistics">
             <div class="statistics-image">
-                <img src="./images/guerrier.webp" alt="Image du héros">
+                <img src="" alt="Image du héros">
             </div>
-            <div>Vie :</div>
-            <div>Attaque :</div>
-            <div>Défense :</div>
-            <div>Mana :</div>
-        </section>        
+            <div class="stat" id="vie">Vie :</div>
+            <div class="stat" id="attaque">Attaque :</div>
+            <div class="stat" id="defense">Défense :</div>
+            <div class="stat" id="mana">Mana :</div>
+        </section>
+                
     </main>
 
     <footer class="footer-inventaire">
@@ -56,10 +59,8 @@
         
         <div class="arrow">&#8250;</div>
     </footer>
-</body>
-
 <script src="js/personnages.js"></script>
 <script src="js/scenes.js"></script>
 <script src="js/fonction.js" type="module"></script>
-
+</body>
 </html>
