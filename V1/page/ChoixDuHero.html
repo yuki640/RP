@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/choixPersonage.css">
     <link rel="icon" type="image/png" href="../images/guerrier.webp" />
-    <title>Choix du héro</title>
-    
+    <title>Choix du héros</title>
 </head>
 <body>
-    <h1>Choisissez votre personnage pour devenir un héro</h1>
+    <h1>Choisissez votre personnage pour devenir un héros</h1>
     <div class="character-selection" id="character-selection">
         <!-- Les personnages seront chargés ici -->
     </div>
@@ -39,6 +38,7 @@
 
         let selectedHero = null;
 
+        // Chargement des personnages
         heros.forEach((hero, index) => {
             const card = document.createElement('div');
             card.classList.add('character-card');
@@ -47,21 +47,27 @@
                 <img src="${hero.image}" alt="${hero.nom}">
                 <h2>${hero.nom}</h2>
                 <p>${hero.description}</p>
-                <button data-index="${index}">Sélectionner</button>
+                <button aria-label="Sélectionner ${hero.nom}" data-index="${index}">Sélectionner</button>
             `;
 
             characterSelection.appendChild(card);
         });
 
+        // Gestion du clic sur un personnage
         characterSelection.addEventListener('click', (event) => {
             if (event.target.tagName === 'BUTTON') {
                 const index = event.target.getAttribute('data-index');
                 selectedHero = heros[index];
 
+                if (!selectedHero) {
+                    console.error("Héros introuvable.");
+                    return;
+                }
+
                 modalTitle.textContent = selectedHero.nom;
                 modalDescription.textContent = selectedHero.description;
                 modalStats.textContent = `
-                    Vie: ${selectedHero.stats.vie} | Attaque: ${selectedHero.stats.attaque} | Défense: ${selectedHero.stats.defance} | Mana: ${selectedHero.stats.mana}
+                    Vie: ${selectedHero.stats.vie} | Attaque: ${selectedHero.stats.attaque} | Défense: ${selectedHero.stats.defense} | Mana: ${selectedHero.stats.mana}
                     Inventaire: ${selectedHero.inventaire.join(', ')}
                 `;
 
@@ -69,12 +75,17 @@
             }
         });
 
+        // Confirmation du choix
         confirmBtn.addEventListener('click', () => {
-            alert(`Vous avez choisi ${selectedHero.nom} !`);
-            modal.style.display = 'none';
-            // Ajoutez ici la logique pour continuer le jeu
+            if (selectedHero) {
+                localStorage.setItem('hero', JSON.stringify(selectedHero));
+                window.location.href = "../index.html";
+            } else {
+                alert("Veuillez sélectionner un héros.");
+            }
         });
 
+        // Annulation
         cancelBtn.addEventListener('click', () => {
             modal.style.display = 'none';
         });
