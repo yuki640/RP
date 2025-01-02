@@ -6,7 +6,7 @@ export const scenes = [
   {
     id: 1,
     titre: "Le Début",
-    lieux: "BlueVenture",
+    lieux: "ville du roi",
     description: "Bienvenue dans BlueVenture, un jeu d'aventure à choix multiples.",
     image: "./images/hero.webp",
     choices: [
