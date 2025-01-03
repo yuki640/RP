@@ -1,6 +1,3 @@
-
-
-
 export const scenes = [
   // SCÈNE 1
   {
