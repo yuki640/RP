@@ -9,3 +9,5 @@ export let hero = {
     inventaire: [],
     lieuxVisites: [],
 };
+
+console.log("hero", hero);

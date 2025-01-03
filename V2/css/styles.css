@@ -139,7 +139,7 @@ body {
     margin-bottom: var(--spacing-m);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--hover-shadow);
+    box-shadow: var(--main-shadow);
 }
 
 .scenes-image img {
@@ -284,14 +284,41 @@ body {
 
 .footer-inventaire .arrow:hover {
     transform: scale(1.2);
-    box-shadow: var (--hover-shadow);
+    box-shadow: var(--hover-shadow);
 }
+
+.inventaire {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.inventaire-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.inventaire-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
 
 /* =========================
    HISTORIQUE - CORRECTION FINALE
    ========================= */
 
-   .historique {
+.historique {
     display: flex;
     align-items: center;
     background-color: var(--header-background);
@@ -322,8 +349,9 @@ body {
     border-radius: 8px;
 }
 
-.historique-wrapper::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-hover);
+.historique-wrapper::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 8px;
 }
 
 .historique-item {
