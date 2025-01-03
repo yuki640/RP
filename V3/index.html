@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="./css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./css/styles.css"></noscript>
+
+    <link rel="icon" type="image/png" href="./images/hero.webp" />
+    <title>BlueVenture</title>
+</head>
+<body>
+    <!-- Header avec l'historique -->
+    <header class="header-historique">
+        <div class="historique">
+            <a class="historique-arrow left" aria-label="Précédent">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                    <path d="M15.41 16.58L10.83 12l4.58-4.59L14 6l-6 6 6 6z" />
+                </svg>
+            </a>
+        
+            <div class="historique-wrapper">
+                
+            </div>
+        
+            <a class="historique-arrow right" aria-label="Suivant">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                    <path d="M8.59 16.58L13.17 12l-4.58-4.59L10 6l6 6-6 6z" />
+                </svg>
+            </a>
+        </div>
+    </header>
+    
+    <!-- Section principale -->
+    <main class="histoire">
+        <section class="histoire-scenes">
+            <div class="scenes-titre"></div>
+            <div class="scenes-image">
+                <img src="./images/hero.webp" data-src="hero.webp" alt="Image des scènes" class="lazyload" />
+
+                
+            </div>
+            <div class="scenes-text">Bienvenue dans BlueVenture, un jeu d'aventure à choix multiples.</div>
+            <div class="scenes-choix">
+                <button>Commencer</button>
+            </div>
+        </section>
+        
+        <!-- Section des statistiques -->
+        <section class="statistics">
+            <div class="statistics-image">
+                <img src="./images/" alt="Image du héros">
+            </div>
+            <div id="vie" class="stat">Vie : </div>
+            <div id="attaque" class="stat">Attaque : </div>
+            <div id="defense" class="stat">Défense : </div>
+            <div id="mana" class="stat">Mana : </div>
+        </section>
+    </main>
+
+    <!-- Modale pour afficher les détails -->
+    <div id="historique-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="Image du lieu">
+                <h2 id="modal-title">Titre</h2>
+                <p id="modal-description">Description</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-inventaire">
+        <button class="arrow">&#8249;</button>
+        <div class="inventaire">
+        </div>        
+        <button class="arrow">&#8250;</button>
+    </footer>
+
+    <section class="game-controls">
+        <button id="save-game" class="control-btn">Save</button>
+        <button id="load-game" class="control-btn">Load</button>
+        <button id="reset-game" class="control-btn">Reboot</button>
+    </section>
+    
+    
+    <!-- Scripts -->
+    <script src="./js/gestion.js" type="module" defer></script>
+
+</body>
+</html>

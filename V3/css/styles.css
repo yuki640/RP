@@ -1,0 +1,597 @@
+/* 
+  =========================
+  VARIABLES GLOBALES
+  =========================
+*/
+:root {
+    --background-color: #f9fafc;
+    --header-background: #324a5f;
+    --header-border: #283a4d;
+    --gray: #5a6978;
+    --white: #ffffff;
+    --light-gray: #dfe3e8;
+    --text-background: #e8eff6;
+    --border-color: #ccd6e0;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    --primary-color: #0078d7;
+    --primary-hover: #005bb5;
+    --gradient-primary: linear-gradient(0deg, rgb(0, 183, 255) 0%, rgb(0, 102, 255) 100%);
+    --text-color: #333;
+
+    /* Espacements */
+    --spacing-xs: 4px;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+
+    /* Police, transition, etc. */
+    --font-family: 'Poppins', Arial, sans-serif;
+    --base-font-size: 16px;
+    --transition-speed: 0.3s;
+    --hover-scale: 1.05;
+
+    /* Ombres */
+    --main-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+  =========================
+  BASE GLOBALE
+  =========================
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--base-font-size);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 
+  =========================
+  HEADER
+  =========================
+*/
+.header-historique {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-background);
+    padding: var(--spacing-m) var(--spacing-l);
+    border-bottom: 3px solid var(--header-border);
+    box-shadow: var(--main-shadow);
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+.header-historique .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    border: none;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    cursor: pointer;
+    position: relative;
+}
+
+.header-historique .arrow:hover {
+    transform: scale(var(--hover-scale));
+    box-shadow: var(--hover-shadow);
+}
+
+.header-historique .arrow svg {
+    fill: var(--white);
+    width: 24px;
+    height: 24px;
+}
+
+/* 
+  =========================
+  SECTION HISTOIRE
+  =========================
+*/
+.histoire {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    padding: var(--spacing-s);
+    background-color: var(--white);
+    margin: var(--spacing-l) auto;
+    border-radius: 12px;
+    max-width: 900px;
+    box-shadow: var(--box-shadow);
+    overflow-x: auto;
+}
+
+.histoire-scenes {
+    flex: 3;
+    padding-right: var(--spacing-m);
+}
+
+.scenes-titre {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-s);
+    color: var(--text-color);
+}
+
+.scenes-image {
+    background-color: var(--light-gray);
+    margin-bottom: var(--spacing-m);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--main-shadow);
+}
+
+.scenes-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--light-gray);
+    transition: transform var(--transition-speed);
+}
+
+.scenes-image img:hover {
+    transform: scale(var(--hover-scale));
+}
+
+.scenes-text {
+    background-color: var(--text-background);
+    margin-bottom: var(--spacing-m);
+    padding: var(--spacing-m);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-color);
+    box-shadow: var(--main-shadow);
+}
+
+/* Boutons Choix */
+.scenes-choix {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-s);
+}
+
+.scenes-choix button {
+    flex: 1 1 45%;
+    padding: var(--spacing-s) var(--spacing-m);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: var(--main-shadow);
+    white-space: normal; /* Autorise le texte à passer à la ligne */
+    text-align: center; /* Centre le texte */
+    word-wrap: break-word; /* Coupe le texte si nécessaire */
+    min-height: 60px; /* Fixe une hauteur minimale */
+}
+
+.scenes-choix button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+
+button {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #0078ff, #005bb5);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #005bb5, #003f8a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+/* 
+  =========================
+  SECTION STATISTIQUES
+  =========================
+*/
+.statistics {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-m);
+    background-color: var(--white);
+    padding: var(--spacing-m);
+    border-left: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: var(--main-shadow);
+    text-align: center;
+    flex: 1;
+    min-width: 160px;
+}
+
+.statistics-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-s);
+    color: var(--text-color);
+}
+
+.statistics-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--main-shadow);
+    margin: 0 auto var(--spacing-m);
+}
+
+.statistics-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.statistics div {
+    background-color: var(--light-gray);
+    padding: var(--spacing-s);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: var(--main-shadow);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.statistics div:hover {
+    background-color: #e0e0e0;
+    box-shadow: var(--hover-shadow);
+}
+
+/* 
+  =========================
+  FOOTER
+  =========================
+*/
+.footer-inventaire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-background);
+    padding: var(--spacing-l);
+    border-top: 3px solid var(--header-border);
+    box-shadow: var(--main-shadow);
+}
+
+.footer-inventaire .arrow {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.footer-inventaire .arrow:hover {
+    transform: scale(1.2);
+    box-shadow: var(--hover-shadow);
+}
+
+.inventaire {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.inventaire-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.inventaire-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   HISTORIQUE - CORRECTION FINALE
+   ========================= */
+
+.historique {
+    display: flex;
+    align-items: center;
+    background-color: var(--header-background);
+    padding: var(--spacing-m);
+    border-radius: 10px;
+    scroll-behavior: smooth;
+    overflow: hidden; /* Supprime le défilement horizontal ici */
+    position: relative;
+    justify-content: center; /* Centre les éléments */
+}
+
+.historique-wrapper {
+    display: flex;
+    gap: var(--spacing-m);
+    overflow-x: auto; /* Active le défilement uniquement ici */
+    scroll-behavior: smooth;
+    padding: var(--spacing-s);
+    width: 100%; /* S'assure que le wrapper prend toute la largeur */
+    align-items: center; /* Centre les items verticalement */
+}
+
+.historique-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.historique-wrapper::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 8px;
+}
+
+.historique-wrapper::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 8px;
+}
+
+.historique-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Garde le contenu aligné en haut */
+    cursor: pointer;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    background-color: transparent; /* Pas de fond blanc */
+    border: 1px solid var(--light-gray); /* Bordure légère pour l'harmonie */
+    padding: var(--spacing-s);
+    border-radius: 12px;
+    box-shadow: var(--main-shadow);
+    width: 100px; /* Taille uniforme */
+    height: 120px; /* Hauteur fixe */
+    text-align: center;
+    flex: 0 0 auto; /* Empêche les items de se redimensionner */
+    overflow: hidden; /* Coupe le contenu qui dépasse */
+}
+
+.historique-item:hover {
+    transform: scale(1.1);
+    box-shadow: var(--hover-shadow);
+}
+
+.historique-item img {
+    width: 60px; /* Taille uniforme pour les images */
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--light-gray);
+    margin-bottom: var(--spacing-xs);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.historique-item img:hover {
+    transform: scale(var(--hover-scale));
+    box-shadow: var(--hover-shadow);
+}
+
+.historique-item span {
+    display: block;
+    font-size: 0.75rem; /* Taille réduite pour éviter la déformation */
+    color: var(--white); /* Adapte la couleur au fond sombre */
+    margin-top: var(--spacing-xs);
+    white-space: nowrap; /* Évite que le texte passe à la ligne */
+    overflow: hidden; /* Coupe le texte s'il dépasse */
+    text-overflow: ellipsis; /* Ajoute des points de suspension (...) */
+}
+
+/* Boutons flèches pour défiler */
+.historique-arrow {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+    position: absolute; /* Reste positionné au-dessus du conteneur */
+    z-index: 1;
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%);
+}
+
+.historique-arrow:hover {
+    background: var(--primary-hover);
+    transform: scale(1.1);
+}
+
+.historique-arrow.left {
+    left: 10px; /* Ajuste l'emplacement à gauche */
+}
+
+.historique-arrow.right {
+    right: 10px; /* Ajuste l'emplacement à droite */
+}
+
+/* =========================
+   MODALE STYLES
+   ========================= */
+   .modal {
+    display: none; /* Cachée par défaut */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond sombre semi-transparent */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    padding: var(--spacing-l);
+    box-shadow: var(--hover-shadow);
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-body img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: var(--spacing-m);
+}
+
+.modal-body h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-s);
+}
+
+.modal-body p {
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: transform var(--transition-speed);
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+}
+
+
+/* =========================
+   SECTION CONTROLES
+   ========================= */
+   .game-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-l);
+    margin-top: var(--spacing-l);
+    padding: var(--spacing-m);
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--main-shadow);
+}
+
+.control-btn {
+    padding: var(--spacing-s) var(--spacing-l);
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.2s, box-shadow var(--transition-speed);
+    box-shadow: var(--main-shadow);
+}
+
+.control-btn:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+    box-shadow: var(--hover-shadow);
+}
+
+
+/* Animation de la modale */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+    .historique-wrapper {
+        gap: var(--spacing-s); /* Réduit l'espacement entre les items */
+    }
+
+    .historique-item {
+        width: 80px; /* Réduit la largeur minimale sur petits écrans */
+        height: 100px; /* Hauteur réduite pour les petits écrans */
+    }
+
+    .historique-item img {
+        width: 50px; /* Taille réduite des images */
+        height: 50px;
+    }
+
+    .historique-item span {
+        font-size: 0.7rem; /* Réduit la taille du texte */
+    }
+
+    .historique-arrow {
+        width: 30px; /* Diminue la taille des flèches */
+        height: 30px;
+    }
+}
