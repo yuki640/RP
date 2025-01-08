@@ -1,0 +1,160 @@
+/* Corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Titre principal */
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Conteneur des cartes de personnages */
+.character-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Cartes de personnages */
+.character-card {
+    background-color: #282846;
+    border: 2px solid #555;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.character-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.character-card img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.character-card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0078ff;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.character-card button:hover {
+    background-color: #005bb5;
+}
+
+/* Modale (popup) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px; /* Evite que le contenu touche les bords */
+}
+
+.modal-content {
+    background-color: #282846;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    width: 90%; /* S'assure que la modale est adaptée aux petits écrans */
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Boutons dans la modale */
+.modal-buttons {
+    display: flex;
+    flex-direction: column; /* Par défaut, les boutons sont empilés */
+    gap: 10px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.modal-buttons .confirm {
+    background-color: #28a745;
+    color: white;
+}
+
+.modal-buttons .confirm:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.modal-buttons .cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+.modal-buttons .cancel:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Responsive pour les écrans moyens et grands */
+@media (min-width: 768px) {
+    .modal-buttons {
+        flex-direction: row; /* Les boutons s'alignent côte à côte */
+        gap: 20px;
+    }
+
+    .modal-buttons button {
+        flex: 1;
+    }
+}
