@@ -13,3 +13,5 @@ document.querySelectorAll(".scenes-choix").forEach(element => {
 
     });
 });
+
+// téléphone 
