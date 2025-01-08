@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/choixPersonage.css">
+    <link rel="preload" href="../css/choixPersonage.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="../css/choixPersonage.css"></noscript>
+
     <link rel="icon" type="image/png" href="../images/guerrier.webp" />
     <title>Choix du héros</title>
 </head>
@@ -22,6 +24,7 @@
             </div>
         </div>
     </div>
-    <script src="../js/fonction.js" type="module"></script>
+       
+    <script src="../js/gestion.js" type="module" defer></script>
 </body>
 </html>

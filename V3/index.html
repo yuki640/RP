@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preload" href="./css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./css/styles.css"></noscript>
+
     <link rel="icon" type="image/png" href="./images/hero.webp" />
     <title>BlueVenture</title>
 </head>
@@ -11,42 +13,32 @@
     <!-- Header avec l'historique -->
     <header class="header-historique">
         <div class="historique">
-            <button class="historique-arrow left" aria-label="Précédent">
+            <a class="historique-arrow left" aria-label="Précédent">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
                     <path d="M15.41 16.58L10.83 12l4.58-4.59L14 6l-6 6 6 6z" />
                 </svg>
-            </button>
+            </a>
         
             <div class="historique-wrapper">
-                <!-- Historique dynamique -->
-                <div class="historique-item" data-description="Un début d'aventure passionnant.">
-                    <img src="./images/scene1.webp" alt="BlueVenture">
-                    <span>BlueVenture</span>
-                </div>
-                <div class="historique-item" data-description="La cour d'un château mystérieux.">
-                    <img src="./images/scene2.webp" alt="Cour du Château">
-                    <span>Cour du Château</span>
-                </div>
-                <div class="historique-item" data-description="Un château rempli de secrets.">
-                    <img src="./images/scene3.webp" alt="Château">
-                    <span>Château</span>
-                </div>
+                
             </div>
         
-            <button class="historique-arrow right" aria-label="Suivant">
+            <a class="historique-arrow right" aria-label="Suivant">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
                     <path d="M8.59 16.58L13.17 12l-4.58-4.59L10 6l6 6-6 6z" />
                 </svg>
-            </button>
+            </a>
         </div>
     </header>
     
     <!-- Section principale -->
     <main class="histoire">
         <section class="histoire-scenes">
-            <div class="scenes-titre">Scène 1</div>
+            <div class="scenes-titre"></div>
             <div class="scenes-image">
-                <img src="./images/hero.webp" alt="Image des scènes">
+                <img src="./images/hero.webp" data-src="hero.webp" alt="Image des scènes" class="lazyload" />
+
+                
             </div>
             <div class="scenes-text">Bienvenue dans BlueVenture, un jeu d'aventure à choix multiples.</div>
             <div class="scenes-choix">
@@ -81,10 +73,20 @@
     <!-- Footer -->
     <footer class="footer-inventaire">
         <button class="arrow">&#8249;</button>
+        <div class="inventaire">
+        </div>        
         <button class="arrow">&#8250;</button>
     </footer>
+
+    <section class="game-controls">
+        <button id="save-game" class="control-btn">Save</button>
+        <button id="load-game" class="control-btn">Load</button>
+        <button id="reset-game" class="control-btn">Reboot</button>
+    </section>
+    
     
     <!-- Scripts -->
-    <script src="./js/fonction.js" type="module"></script>
+    <script src="./js/gestion.js" type="module" defer></script>
+
 </body>
 </html>

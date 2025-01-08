@@ -2,50 +2,62 @@ export const heros = [
   {
     nom: "Guerrier",
     description: "Fort et courageux, spécialisé dans les combats rapprochés.",
-    image: "/V1/images/guerrier.webp",
+    image: "/V2/images/guerrier.webp",
     stats: {
       vie: 150,
       attaque: 20,
       defense: 15,
       mana: 0,
     },
-    inventaire: ["Épée", "Bouclier"],
+    inventaire: [
+      { nom: "Épée", image: "/V2/images/Epee.webp" },
+      { nom: "Armure", image: "/V2/images/armure.webp" },
+    ],
   },
   {
     nom: "Mage",
     description: "Maître des arcanes, utilise la magie pour infliger des dégâts.",
-    image: "/V1/images/mage.webp",
+    image: "/V2/images/mage.webp",
     stats: {
       vie: 100,
       attaque: 15,
       defense: 5,
       mana: 50,
     },
-    inventaire: ["Bâton magique", "Parchemin de feu"],
+    inventaire: [
+      { nom: "Bâton", image: "/V2/images/baton.webp" },
+      { nom: "Robe de mage", image: "/V2/images/robe.webp" },
+    ],
 },
   {
     nom: "Archer",
     description: "Rapide et précis, inflige des dégâts à distance.",
-    image: "/V1/images/archer.webp",
+    image: "/V2/images/archer.webp",
     stats: {
       vie: 120,
       attaque: 18,
       defense: 0,
       mana: 10,
     },
-    inventaire: ["Arc", "Flèches"],
+    inventaire: [
+      { nom: "Arc", image: "/V2/images/arc.webp" },
+      { nom: "Flèches", image: "/V2/images/fleche.webp" },
+    ],
   },
   {
     nom: "Voleur",
     description: "Furtif et agile, spécialisé dans les attaques surprises.",
-    image: "/V1/images/voleur.webp",
+    image: "/V2/images/voleur.webp",
     stats: {
       vie: 100,
       attaque: 30,
       defense: 10,
       mana: 0,
     },
-    inventaire: ["Dague", "Potion de poison"],
+    inventaire: [
+      { nom: "Dague", image: "/V2/images/Dague.webp" },
+      { nom: "Potion de poison", image: "/V2/images/poison.webp" },
+    ],
   }
 ];
 
